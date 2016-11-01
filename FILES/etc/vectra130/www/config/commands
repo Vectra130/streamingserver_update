@@ -1,0 +1,9 @@
+echo suspend > /tmp/.frontendSet:Starte Suspend:Das System wird in den &uuml;bers Webfrontend eingestellten Stromsparmodus versetzt oder Ausgeschaltet
+echo vdr > /tmp/.frontendSet:Starte VDR:VDR wird gestartet
+echo kodi > /tmp/.frontendSet:Starte Kodi:Kodi wird gestartet
+
+/sbin/init reboot:System neu starten:Das System wird neu gestartet
+/sbin/init poweroff:System herunterfahren:Das System wird heruntergefahren
+
+touch /nfs/vdrserver/.reboot:(VDR-Server) System neu starten:Der VDR-Server wird neu gestartet. Es wird nicht gepr&uuml;ft ob eine Aufnahme ansteht!
+touch /nfs/vdrserver/.vdr_restart:(VDR-Server) VDR-Backend neu starten:Das VDR-Backend auf dem VDR-Server wird neu gestartet. Es wird nicht gepr&uuml;ft ob eine Aufnahme ansteht!

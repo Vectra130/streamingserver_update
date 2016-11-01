@@ -1,0 +1,67 @@
+# Grundeinstellungen des VDR
+# Einstellungen werden ueber das Webinterface konfiguriert
+M:VDR StreamingServer
+H:--- VDR Plugin Verwaltung ---
+I:Hier k&ouml;nnen VDR-Plugins an-/abgeschaltet werden. Je weniger Plugins aktiv sind, desto besser die Performance des VDR
+C:VDRPLUGINlive:1:B:0:Inaktiv,Aktiv:Live Webinterface:Web-Frontend zum verwalten von Timern, Aufnahmen, EPG und mehr
+C:VDRPLUGINskinflat:0:B:0:Inaktiv,Aktiv:Skin Flat:Schlanker VDR Skin::
+C:VDRPLUGINvnsiserver:0:B:0:Inaktiv,Aktiv:VNSI Server:VNSI Server erm&ouml;glicht den Streaming Zugriff auf den VDR per XBMC MediaCenter
+C:VDRPLUGINwirbelscan:0:B:0:Inaktiv,Aktiv:Wirbelscan:Sendersuche
+C:VDRPLUGINiptv:1:B:0:Inaktiv,Aktiv:IP-Tv:Online-TV, Webcam streams, Internet und weitere dinge Empfangen. Einstellungen m&uuml;ssen in der channels.conf vorgenommen werden
+I:
+H:--- Aufnahme Verzeichnis ---
+I:Hier k&ouml;nnen verschiedene Speicherorte f&uuml;r die VDR Aufnahmen ausgewählt werden.</br>Alle Laufwerke werden zu einem gemeinsamen Verzeichnis zusammengefasst.</br>(Der VDR speichert neue Aufnahmen immer auf dem Laufwerk mit dem gr&ouml;&szlig;ten freien Speicherplatz)</br>Achtung:&nbsp;Nach einer &Auml;nderung m&uuml;ssen alle Clients neu gestartet werden!
+I:</br>Lokale Festplatten
+I:Hier k&ouml;nnen interne sowie externe Festplatten (HDD) als Video Verzeichnis eingebunden werden</br>Es k&ouml;nnen bis zu vier HDDs eingebunden werden
+C:HDD1:deaktiv:L:0:deaktiv,sdb1(client_storage/1,9GB),sdb4(video00/2,7TB):Video HDD 1:Es werden nur HDDs mit Linux FileSystem angezeigt. im Admin Men&uuml; k&ouml;nnen HDDs formattiert werden:::
+C:HDD2:test:L:0:deaktiv,sdb1(client_storage/1,9GB),sdb4(video00/2,7TB):Video HDD 2:Es werden nur HDDs mit Linux FileSystem angezeigt. im Admin Men&uuml; k&ouml;nnen HDDs formattiert werden:
+C:HDD3:deaktiv:L:0:deaktiv,sdb1(client_storage/1,9GB),sdb4(video00/2,7TB):Video HDD 3:Es werden nur HDDs mit Linux FileSystem angezeigt. im Admin Men&uuml; k&ouml;nnen HDDs formattiert werden:
+C:HDD4:deaktiv:L:0:deaktiv,sdb1(client_storage/1,9GB),sdb4(video00/2,7TB):Video HDD 4:Es werden nur HDDs mit Linux FileSystem angezeigt. im Admin Men&uuml; k&ouml;nnen HDDs formattiert werden:
+I:
+I:</br>NAS Netzlaufwerk
+I:Hier kann das Aufnahmeverzeichnis des VDR durch zus&auml;tzliche NAS Festplatten erweitert werden.</br>Es k&ouml;nnen bis zu vier NAS Festplatten eingebunden werden</br></br>-- Festplatte 1 --
+C:NASIP1: :A:15:0-9.:IP Adresse:NAS-Server IP Adresse
+C:NASPATH1:/video00:A:99:0-9._-/a-zA-Z:Verzeichnis:
+C:NASNFSTYPE1:3:L:0:3,4:NFS-Version:Zur Not ausprobieren welche funktioniert
+I:-- Festplatte 2 --
+C:NASIP2: :A:15:0-9.:IP Adresse:NAS-Server IP Adresse
+C:NASPATH2:/test1:A:99:0-9._-/a-zA-Z:Verzeichnis:Verzeichnisname auf dem NAS Laufwerk
+C:NASNFSTYPE2:3:L:0:3,4:NFS-Version:Zur Not ausprobieren welche funktioniert
+I:-- Festplatte 3 --
+C:NASIP3: :A:15:0-9.:IP Adresse:NAS-Server IP Adresse
+C:NASPATH3: :A:99:0-9._-/a-zA-Z:Verzeichnis:Verzeichnisname auf dem NAS Laufwerk
+C:NASNFSTYPE3:4:L:0:3,4:NFS-Version:Zur Not ausprobieren welche funktioniert
+I:-- Festplatte 4 --
+C:NASIP4: :A:15:0-9.:IP Adresse:NAS-Server IP Adresse
+C:NASPATH4: :A:99:0-9._-/a-zA-Z:Verzeichnis:Verzeichnisname auf dem NAS Laufwerk
+C:NASNFSTYPE4:4:L:0:3,4:NFS-Version:Zur Not ausprobieren welche funktioniert
+M:System
+I:
+C:SUSPENDTIME:10:L:0:0,1,2,3,4,5,10,15,30,60,120:Zeit in Minuten bis Suspend(0=deaktiv):In diesem Zyklus wird gepr&uuml;ft ob ein Client online oder eine Aufnahme ansteht. Ist dies nicht der Fall geht der Server in Suspend::::
+I:
+H:--- Netzwerk Einstellungen ---
+i:MAC-Adresse: 00:13:72:AF:45:4C
+C:IP:192.168.1.80:A:15:0-9.:IP-Adresse:Hier die gew&uuml;nschte IP Adresse eingeben
+C:GATEWAY:192.168.1.1:A:15:0-9.:Gateway:Hier die IP Adresse des Routers eingeben
+C:NAMESERVER:192.168.1.1:A:15:0-9.:Nameserver:Hier die Adresse des Nameservers eingeben (Meistens die selbe wie der Router)
+C:NETMASK:255.255.255.0:A:15:0-9.:Subnetmask:Standard Subnetmask ist 255.255.255.0
+C:WORKGROUP:VECTRANET:A:15:a-zA-Z0-9._-:Name der Arbeitsgruppe:Zum auffinden in Windows Netzwerken
+C:USEDHCP:0:B:1:Nein,Ja:DHCP:Oscam Cardserver aktivieren
+H:--- Dienste ---
+C:USEOSCAM:0:B:1:Nein,Ja:Oscam Server aktivieren:Oscam Cardserver aktivieren
+C:USESAMBA:1:B:1:Nein,Ja:Samba Server aktivieren:Hier kann eingestellt werden ob der Samba Dienst genutzt werden soll. Dies erm&ouml;glicht den Zugriff auf die VDR-Aufnahmen von einem Windows Netzwerk
+C:USEEPGD:1:B:1:Nein,Ja:EPG Server aktivieren:Der EPG Server liest epg Infos online und f&uuml;llt die MySql Datenbank welche von Clients mit aktiviertem epg2vdr und scraper2vdr Plugin genutzt wird. Der MySql Server muss nat&uuml;rlich auch aktiviert sein
+C:USEH264:0:B:1:Nein,Ja:h264 konvertierung aktivieren:Neue VDR Aufnahmen werden automatisch ins platzsparende h264 Format konvertiert. Die Konvertierung dauert je nach Filml&auml;nge und Auslastung einige Stunden
+C:USEMYSQL:1:B:1:Nein,Ja:MySql Datenbank Server aktivieren:Wenn auf den Clients das epg2vdr oder scraper2vdr Plugin aktiviert wird oder die gemeinsame XBMC Datenbank genutzt werden soll, dann muss der MySql Server aktiviert werden
+I:
+C:LINK1:update.php:C:1:0:System Update:System Update durchf&uuml;hren
+M:Admin Einstellungen
+I:<b><font color="#FF0000">Nur &auml;ndern wenn du weisst was du tust!!!</font></b>
+C:DEBUG:0:B:1:Nein,Ja:Debug Modus:
+C:LINK2:mkfs.php:C:1:0:Festplatte formattieren(betatest):Hier werden alle Laufwerke angezeigt die formattiert werden k&ouml;nnen
+I:Systemdateien bearbeiten
+C:LINK3:edit_config.php?file=/etc/samba/samba-shares.conf:C:1:0:samba.conf:
+C:SYSTEMTYP:SERVER:A:0:0:System Typ:
+C:CLIENTTYP:SERVER:A:0:0:Client Typ:
+C:DVBREATTACHTIME:15:A:0:0:DVB Reattach Zeit(m):Zeit, nachdem ein detachtes Device wieder attached wird:
+C:VDRVERS:2.2.0:A:0:0:VDR version

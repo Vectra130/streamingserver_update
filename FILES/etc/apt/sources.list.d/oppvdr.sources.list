@@ -1,0 +1,91 @@
+# OPPs VDR 2.0 Wheezy Sources.list (Stand 06.10.2013) [ Â© Oliver Schuetz aka OppTupacShakur | http://OPPServer.net | http://unix.oppserver.net ]
+# Natuerlich muesst ihr die Sourcen auskommentieren die ihr nicht benoetigt!!!
+
+# DEBIAN
+# deb http://ftp.debian.org/debian/ wheezy contrib main non-free
+# deb-src http://ftp.debian.org/debian/ wheezy contrib main non-free
+
+
+# DEBIAN SECURITY
+# deb http://security.debian.org/ wheezy/updates main contrib non-free
+# deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+
+# DEBIAN BACKPORTS
+deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+
+
+# OPERA
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget -O - http://deb.opera.com/archive.key | sudo apt-key add -
+# deb http://deb.opera.com/opera/ stable non-free
+
+
+# DEBIAN MULTIMEDIA
+# hier muss vorher folgender befehl ausgefuehrt werden
+# gpg --keyserver pgp.mit.edu --recv-keys 1F41B907
+# gpg --armor --export 1F41B907 | sudo apt-key add -
+#deb http://www.deb-multimedia.org/ jessie main non-free
+#deb-src http://www.deb-multimedia.org/ jessie main
+
+
+# VIRTUALBOX
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O - | sudo apt-key add -
+# deb http://download.virtualbox.org/virtualbox/debian wheezy contrib non-free
+
+
+# WEBMIN
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://www.webmin.com/jcameron-key.asc -O - | sudo apt-key add -
+# deb http://download.webmin.com/download/repository sarge contrib
+
+
+# E-TOBI VDR
+# hier muss vorher folgender befehl ausgefuehrt werden
+# gpg --keyserver hkp://wwwkeys.eu.pgp.net --recv-keys F7180D26AEDAA642
+# gpg --armor --export F7180D26AEDAA642 | sudo apt-key add -
+# oder nach einem aptitude update
+# sudo aptitude install e-tobi-keyring
+
+# EXPERIMENTAL
+deb http://e-tobi.net/vdr-experimental jessie base addons vdr-multipatch
+deb-src http://e-tobi.net/vdr-experimental jessie base addons vdr-multipatch
+
+
+# MMS
+# deb http://www.prodeia.de/mms/squeeze binary/
+# deb-src http://www.prodeia.de/mms source/
+
+
+# Iceweasel
+# hier muss nach einem aptitude update folgender befehl ausgefuehrt werden
+# sudo aptitude install pkg-mozilla-archive-keyring
+# deb http://mozilla.debian.net/ wheezy-backports iceweasel-release
+
+
+# OPP-Debian
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://debian.oppserver.net/gpg-debian.oppserver.net-signing-pubkey.asc -O - | sudo apt-key add -
+# deb http://debian.oppserver.net/debian wheezy contrib main non-free
+# deb-src http://debian.oppserver.net/debian wheezy contrib main non-free
+
+# OPP-VDR (basiert auf e-tobi multipatch)
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://debian.oppserver.net/gpg-debian.oppserver.net-signing-pubkey.asc -O - | sudo apt-key add -
+# deb http://debian.oppserver.net/vdr wheezy contrib main non-free
+# deb-src http://debian.oppserver.net/vdr wheezy contrib main non-free
+
+# OPP-VDR DEVEL (basiert auf e-tobi multipatch)
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://debian.oppserver.net/gpg-debian.oppserver.net-signing-pubkey.asc -O - | sudo apt-key add -
+deb http://debian.oppserver.net/vdrdevel jessie contrib main non-free
+deb-src http://debian.oppserver.net/vdrdevel jessie contrib main non-free
+
+# OPP-DEBIAN XBMC
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://debian.oppserver.net/gpg-debian.oppserver.net-signing-pubkey.asc -O - | sudo apt-key add -
+# deb http://debian.oppserver.net/xbmc/ wheezy main non-free contrib
+# deb-src http://debian.oppserver.net/xbmc/ wheezy main non-free contrib
+

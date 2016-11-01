@@ -1,0 +1,15 @@
+[Unit]
+Description=StreamingServer Boot Sequenz
+DefaultDependencies=no
+After=-.mount
+Before=streamingserver.service networking.service
+
+[Service]
+Environment='ARGS='
+ExecStart=-/etc/vectra130/bin/BootSequenz $ARGS
+Type=simple
+KillMode=none
+SendSIGKILL=no
+
+[Install]
+WantedBy=local-fs.target

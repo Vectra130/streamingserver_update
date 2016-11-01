@@ -1,0 +1,1 @@
+INIT_ACTION=. /etc/vdr.d/scripts/sort_channels.sh

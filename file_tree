@@ -1,0 +1,49 @@
+## files die upgedatet werden müssen
+# erster buchstabe (gefolgt von leerzeile) = option
+# up = update
+# cf = force kopieren
+# rc = original(ordner) vorher komplett löschen, dann kopieren
+# rm = nur löschen
+# nf = touch
+# sl = symlink
+# nd = ordner anlegen
+
+nd /etc/vectra130/data/vdr/vtx
+nd /etc/vectra130/configs/userconfig
+nd /etc/vectra130/configs/vdrconfig
+nd /etc/vectra130/configs/sysconfig
+sl /etc/vectra130/data/vdr /var/cache/vdr
+cf /etc/vectra130/configs/vdrconfig/conf.avail
+up /etc/vectra130/configs/vdrconfig/diseqc.conf
+up /etc/vectra130/configs/vdrconfig/remote.conf
+up /etc/vectra130/configs/vdrconfig/plugins
+rc /etc/vectra130/configs/sysconfig
+rm /etc/vectra130/bin
+up /etc/vectra130/www
+rc /etc/vectra130/scripts
+sl /etc/vectra130/configs/sysconfig/VDR-Streaming-Server.service /etc/avahi/services/
+
+cf /usr/bin/vdr
+cf /usr/bin/StreamingServer
+cf /usr/bin/BootSequenz
+
+fc /usr/local/sbin/lighttpd
+
+rc /usr/lib/vdr/plugins
+
+cf /etc/systemd/system/vdr.service
+cf /etc/systemd/system/streamingserver.service
+cf /etc/systemd/system/streamingserver-boot.service
+
+fc /etc/proftpd
+fc /etc/lighttpd
+fc /etc/fstab
+up /etc/dbus-1/system.d/de.tvdr.vdr.conf
+fc /etc/apt/sources.list
+rc /etc/apt/sources.list.d
+rc /etc/hostname
+
+nd /tmp_system
+sl /tmp_system/hosts /etc/
+sl /tmp_system/mailname /etc/
+sl /tmp_system/resolv.conf /etc/

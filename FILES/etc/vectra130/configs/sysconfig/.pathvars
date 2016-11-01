@@ -1,0 +1,12 @@
+VECTRADIR=/etc/vectra130
+SYSCONFDIR=$VECTRADIR/configs/sysconfig
+USERCONFDIR=$VECTRADIR/configs/userconfig
+VDRCONFDIR=$VECTRADIR/configs/vdrconfig
+XBMCCONFDIR=$VECTRADIR/configs/xbmcconfig
+SCRIPTDIR=$VECTRADIR/scripts
+BINDIR=$VECTRADIR/bin
+WWWDIR=$VECTRADIR/www
+IMAGEDIR=$VECTRADIR/images
+MSG=/tmp/.displaymessage
+DATADIR=$VECTRADIR/data
+AVAHIDIR=/etc/avahi/services

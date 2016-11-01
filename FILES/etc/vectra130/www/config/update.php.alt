@@ -1,0 +1,106 @@
+<?php
+session_start();
+$hostname = $_SESSION['hostname'];
+$SYSTEMTYP = $_SESSION['SYSTEMTYP'];
+$rand = $_SESSION['rand'];
+$ACTION = $_GET['action'];
+$UPDATEFILE = $_GET['UPDATEFILE'];
+if (!isset($hostname)) {
+	$hostname = $_GET['hostname'];
+}
+if (!isset($SYSTEMTYP)) {
+        $SYSTEMTYP = $_GET['SYSTEMTYP'];
+}
+
+if (isset($_FILES["updatefile"]) || "x".$ACTION == "xcheck" ) {
+//Header
+?>
+<!DOCTYPE html>
+<html>
+<head>
+        <title>System Update (<?php echo $hostname;?>)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="cache-control" content="no-store,no-cache, must-revalidate,post-check=0, pre-check=0,max-age=0">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <link rel="apple-touch-startup-image" href="images/<?php echo $SYSTEMTYP; ?>-startup.jpg?<?php echo $rand; ?>">
+        <link rel="apple-touch-icon" href="images/<?php echo $SYSTEMTYP; ?>-iui-icon.png?<?php echo $rand; ?>" />
+        <link rel="icon" type="image/png" href="images/<?php echo $SYSTEMTYP; ?>-iui-icon.png?<?php echo $rand; ?>">
+        <link rel="stylesheet" href="iui/iui.css?<?php echo $rand; ?>" type="text/css" />
+        <link rel="stylesheet" href="iui/iui-ext.css?<?php echo $rand; ?>" type="text/css" />
+        <link rel="stylesheet" href="iui/t/default/default-theme.css?<?php echo $rand; ?>"  type="text/css"/>
+        <link rel="stylesheet" href="iui/iui-eigenes.css?<?php echo $rand; ?>" type="text/css" />
+        <link rel="stylesheet" href="iui/iui-eigenes.css?<?php echo $rand; ?>" type="text/safari" />
+        <script type="application/x-javascript" src="iui/iui.js?<?php echo $rand; ?>"></script>
+        <script type="text/javascript" src="iui/iui-eigenes.js?<?php echo $rand; ?>"></script>
+
+</head>
+<body>
+    <div class="toolbar">
+        <h1 id="pageTitle"> </h1>
+        <a id="backButton" class="button" href="#"></a>
+        <a class="button" href="#home">Home</a>
+    </div>
+<div class='panel' id='update_check' title='System Update' selected='true'>
+</br><h2>Update Check</h2></br>
+<?php
+
+//File verschieben
+if(!move_uploaded_file($_FILES['updatefile']['tmp_name'],"/etc/vectra130/update/".$_FILES['updatefile']['name'])){
+   // Ups, es passierte ein Fehler beim Kopieren
+        echo "<fieldset><p><b>Datei hochladen fehlgeschlagen!!!</b></p></fieldset>";
+   }
+  else {
+   // Upload und verschieben erfolgreich
+	exec('/etc/vectra130/scripts/.update_exec.sh check', $result);
+	echo "<fieldset><p>";
+        for($i=0; $i<(count($result) - 1); $i++) {
+                echo $result[$i]."</br>";
+        }
+	echo "</p></fieldset>"; 
+	if( $result[count($result) -1] == "Update File OK" ) {
+		echo "<fieldset><p>Update bereit zur Installation</br></br><b>Achtung, w&auml;hrend des Updates werden alle Dienste (VDR, XBMC, usw) beendet. Das System startet anschlie&szlig;end automatisch neu</b></p></fieldset>";
+		echo "</br></br><a href='update.php?hostname=".$hostname."&SYSTEMTYP=".$SYSTEMTYP."&action=exec&UPDATEFILE=".$_FILES['updatefile']['name']."' class='redButton'>Update durchf&uuml;hren</a><div class='spinner'>";
+	}
+	else {
+		echo "<fieldset><p>";
+                echo $result[count($result) -1];
+		echo "</p></fieldset>";
+	}
+
+  }
+echo "</html>";
+}
+else {
+if( "$ACTION" == "exec" ) {
+?>
+        <div class='panel' id='update_exec' title='System Update' selected='true'>
+        <fieldset><p><b>Systemupdate wird durchgef&uuml;hrt. System nicht ausschalten.</br>Das System startet nach dem Update automatisch neu.</b></p></fieldset>
+<?php
+	exec ('/bin/bash /etc/vectra130/update/'.substr($UPDATEFILE, 0, -7).'/update.sh > /dev/null &2>/dev/null &');
+}
+else {
+exec('[ ! -e /etc/vectra130/update ] && mkdir -p /etc/vectra130/update && chmod 777 /etc/vectra130/update && logger -t UPDATE "update Ordner wurde angelegt"' );
+?>
+<div class='panel' id='update' title='Update - <?php echo $hostname." (v".exec('cat /etc/vectra130/VERSION').")"; ?>' selected='true'>
+<?php
+echo "<form method='post' action='update.php?hostname=".$hostname."&SYSTEMTYP=".$SYSTEMTYP."&action=check' enctype='multipart/form-data'>";
+?>
+  <p>Update Datei ausw&auml;hlen:</br>(Datei muss das Format '<b>update_<?php echo $SYSTEMTYP; ?>_x.x.x.tar.gz</b>' haben)</br></br>
+<!--  <input type="hidden" name="MAX_FILE_SIZE" value="200000000" -->
+  <input type="file" name="updatefile" size="200" maxlength="100000" accept="text/*">
+  </br>
+  </br>
+  </br>
+  <input type="submit" name="Submit" value="&Uuml;berpr&uuml;fen"></input><div class='spinner'></p>
+</form>
+<?php
+}
+}
+?>
+
+</div>

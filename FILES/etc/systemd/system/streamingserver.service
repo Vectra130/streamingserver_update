@@ -1,0 +1,11 @@
+[Unit]
+Description=StreamingServer
+After=streamingserver-boot.service network.target mysql.service
+
+[Service]
+Restart=on-failure
+ExecStart=/etc/vectra130/bin/StreamingServer
+#ExecStart=/usr/bin/StreamingServer
+
+[Install]
+WantedBy=default.target

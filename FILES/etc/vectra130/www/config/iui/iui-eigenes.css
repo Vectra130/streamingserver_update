@@ -1,0 +1,275 @@
+/* <p> */
+.panel p.normalText { text-align: center;  padding: 0 10px 0 10px; }
+body { background-color: #000000; }
+/************************************************************************************************/
+
+/* spinner */
+    div.spinner {
+       visibility: hidden;
+       background: black url(t/default/loading2.gif) no-repeat center center;
+       position: absolute;
+       top: 0px;
+       left: 0px;
+       height: 100%;
+       width: 100%;
+       opacity: 0.5;
+    }
+    form.progress div.spinner {
+        visibility: visible;
+    }
+    fieldset > div.row > span {
+    	position:	absolute;
+    	right:		0px;
+    	padding-left:	0px;
+    }
+/************************************************************************************************/
+
+row > .togglePush ,
+fieldset > .row > .togglePush {
+	float:			right;
+    margin-top: 	5px;
+    margin-right: 	7px;
+    width: 			77px;
+    height: 		26px;
+    text-shadow:	rgba(255,255,255,1) 1px 1px 0;
+	text-align: 	center;
+    border: 		1px solid #888;
+	box-shadow: 	inset 0 1px 3px #BABABA, inset 0 12px 3px 2px rgba(212, 212, 212, 0.5); 
+    line-height:	27px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+
+fieldset > .row > .toggleOffline {
+	float:			right;
+    margin-top: 	5px;
+    margin-right: 	7px;
+    width: 			77px;
+    height: 		26px;
+    border: 		1px solid #000000;
+	background-color: #cccccc;
+	box-shadow: 	inset 0 1px 3px #000000, inset 0 12px 3px 2px rgba(0, 0, 0, 0.5); 
+    line-height:	27px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+.toggleOffline:before {
+	display: 		block;
+	margin-left: 	auto;
+	margin-right: 	auto;
+	margin-top: 	auto;
+	margin-bottom:	auto;
+	font-size: 		0.7em;
+    text-shadow:	rgba(255,255,255,1) 1px 1px 0;
+	text-align: 	center;
+	font-weight:	bold;
+	color:			#F00;
+	content:		'Offline';
+}
+fieldset > .row > .togglePushed {
+	float:			right;
+    margin-top: 	5px;
+    margin-right: 	7px;
+    width: 			77px;
+    height: 		26px;
+    border: 		1px solid #143fae;
+	box-shadow: 	inset 0 1px 2px #0063B7, inset 0 12px 3px 2px rgba(0, 67, 255, 0.5);
+	background-color: #64B1F2; 
+	color:			#64b1f2;
+	text-align: 	center;
+    line-height:	26px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+.togglePushed:after {
+	display:		none;
+    content:		'blub';
+}
+fieldset > .row > .toggleJal {
+	float:			right;
+    margin-top: 	5px;
+    margin-right: 	7px;
+    width: 			26px;
+    height: 		27px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+.down {
+    border: 		1px solid #888;
+	box-shadow: 	inset 0 1px 3px #BABABA, inset 0 12px 3px 2px rgba(212, 212, 212, 0.5); 
+    line-height:	28px;	
+}
+.up {
+    border: 		1px solid #888;
+	box-shadow: 	inset 0 1px 3px #BABABA, inset 0 12px 3px 2px rgba(212, 212, 212, 0.5); 
+    line-height:	26px;	
+}
+.stop {
+    border: 		1px solid #888;
+	box-shadow: 	inset 0 1px 3px #E8C8C8, inset 0 12px 3px 2px rgba(232, 100, 100, 0.5); 
+	background-color: #EDD1D0;
+    line-height:	28px;	
+}
+.down:before,
+.downPushed:before,
+.downActiv:before {
+	display: 		block;
+	left:			50%;
+	top:			50%;
+	font-size: 		16px;
+	text-align: 	center;
+	content:		'\25bc';
+}
+.downPushed:before {
+	color:			#FFF;
+}
+.up:before,
+.upPushed:before,
+.upActiv:before {
+	display: 		block;
+	left:			50%;
+	top:			50%;
+	font-size: 		16px;
+	text-align: 	center;
+	content:		'\25b2';
+}
+.upPushed:before {
+	color:			#FFF;
+}
+.stop:before,
+.stopPushed:before {
+	display: 		block;
+	width: 			8px;
+	height: 		8px;
+	border: 		1px solid #666;
+	background-color: #000;
+	margin-left: 	auto;
+	margin-right: 	auto;
+	margin-top: 	9px;
+	margin-bottom:	auto;
+	content:'';
+}
+.stopPushed:before {
+	border:			1px solid #ccc;
+	background-color: #FFF;
+}
+.downPushed {
+    border: 		1px solid #143fae;
+	box-shadow: 	inset 0 1px 2px #0063B7, inset 0 12px 3px 2px rgba(0, 67, 255, 0.5);
+	background-color: #64B1F2; 
+    line-height:	28px;	
+}
+.upPushed {
+    border: 		1px solid #143fae;
+	box-shadow: 	inset 0 1px 2px #0063B7, inset 0 12px 3px 2px rgba(0, 67, 255, 0.5);
+	background-color: #64B1F2; 
+    line-height:	26px;	
+}
+.stopPushed {
+    border: 		1px solid #B70500;
+	box-shadow: 	inset 0 1px 3px #B70500, inset 0 12px 3px 2px rgba(185, 005, 000, 0.5); 
+	background-color: #F26764; 
+    line-height:	28px;	
+}
+.downActiv {
+    border: 		1px solid #000000;
+	background-color: #cccccc;
+	box-shadow: 	inset 0 1px 3px #000000, inset 0 12px 3px 2px rgba(0, 0, 0, 0.5); 
+    line-height:	28px;	
+}
+.upActiv {
+    border: 		1px solid #000000;
+	background-color: #cccccc;
+	box-shadow: 	inset 0 1px 3px #000000, inset 0 12px 3px 2px rgba(0, 0, 0, 0.5); 
+    line-height:	26px;	
+}
+
+/************************************************************************************************/
+
+.statusLedOff {
+	float:			right;
+    margin-top: 	11px;
+    margin-right: 	13px;
+    width: 			16px;
+    height: 		16px;
+    border: 		0px solid #888;
+	box-shadow: 	inset -6px -6px 3px 0px #CCC, inset 2px 2px 4px 0px #CCC, 0px 0px 4px 4px #000;
+    line-height:	27px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+
+.statusLedOn {
+	float:			right;
+    margin-top: 	11px;
+    margin-right: 	13px;
+    width: 			16px;
+    height: 		16px;
+    border: 		0px solid #AAA;
+	box-shadow: 	inset -6px -6px 3px 0px #0000FF, inset 2px 2px 4px 0px #0000FF, 0px 0px 4px 4px #000; 
+    line-height:	27px;
+    -webkit-border-radius: 	20px;
+	-moz-border-radius: 	20px;
+    border-radius:			20px;
+}
+
+/************************************************************************************************/
+
+.topbarBackground {
+	opacity:		0.0;
+	position:		absolute;
+	text-align:		center;
+	top:			45px;
+	left:			50%;
+	margin-left:	-50%;
+	width:			100%;
+    height: 		33px;
+    border: 		0;
+	background-color: #000;
+    line-height:	33px;
+	content:		"";
+}
+
+body[orient="landscape"] .topbarBackground {
+	top:			30px;
+}
+
+.topbarIMG {
+	opacity: 		0.0;
+	position:		absolute;
+	text-align:		center;
+	top:			55px;
+	height:			33px;
+	left:			50%;
+	margin-left:	-150px;
+	width:			300px;
+	z-index: 		1; 
+}
+
+body[orient="landscape"] .topbarIMG {
+	top:			40px;
+}
+
+.footerbarBackground {
+	opacity:		0.0;
+	position:		absolute;
+	text-align:		center;
+	bottom:			10px;
+	left:			50%;
+	margin-left:	-50%;
+	width:			100%;
+    height: 		33px;
+    border: 		0;
+	background-color: #000;
+    line-height:	33px;
+}
+
+div.abschneiden1 { height: 67px; overflow: hidden; }
+div.abschneiden2 { height: 74px; overflow: hidden; }
+div.abschneiden3 { height: 74px; overflow: hidden; }
+
